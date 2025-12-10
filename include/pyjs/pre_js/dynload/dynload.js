@@ -18,12 +18,11 @@ function createLock() {
  
  // * local
  // * global
- // * undefined // when we dont 
  function libraryType (path) {
     if (path.includes("cpython-3") && path.includes("-wasm32-emscripten.so")) {
         return "local";
     }
-    return undefined;
+    return "global";
  }
 
  function getFilenameFromPath(path) {

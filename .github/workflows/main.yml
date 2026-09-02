@@ -24,14 +24,17 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Install micromamba
-        uses: mamba-org/setup-micromamba@v1
+        uses: mamba-org/setup-micromamba@v3
         with:
-          environment-file: environment-dev.yml
-          environment-name: pyjs-wasm 
-          condarc: |
-            channels:
-              - https://repo.prefix.dev/emscripten-forge-4x
-              - conda-forge
+        init-shell: >-
+          bash
+          powershell
+        environment-file: environment-dev.yml
+        environment-name: pyjs-wasm 
+        condarc: |
+          channels:
+            - https://repo.prefix.dev/emscripten-forge-4x
+            - conda-forge
 
 
       - name: Install Playwright

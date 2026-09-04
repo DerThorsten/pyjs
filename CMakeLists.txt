@@ -11,7 +11,7 @@ option(LINK_LIBLZMA "Link liblzma" OFF)
 
 # set PY_VERSION to 3.11 if the user has not set it
 if (NOT DEFINED PY_VERSION)
-    set(PY_VERSION 3.11)
+    set(PY_VERSION 3.14)
 endif()
 
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/pycpp_includes)
@@ -148,9 +148,9 @@ target_include_directories(pyjs
 )
 
 SET(PYTHON_UTIL_LIBS
-    ${CMAKE_INSTALL_PREFIX}/lib/libbz2.a
+    # ${CMAKE_INSTALL_PREFIX}/lib/libbz2.a
     ${CMAKE_INSTALL_PREFIX}/lib/libz.a
-    ${CMAKE_INSTALL_PREFIX}/lib/libsqlite3.a
+    # ${CMAKE_INSTALL_PREFIX}/lib/libsqlite3.a
     ${CMAKE_INSTALL_PREFIX}/lib/libffi.a
     ${CMAKE_INSTALL_PREFIX}/lib/libzstd.a
     # ssl
@@ -159,6 +159,8 @@ SET(PYTHON_UTIL_LIBS
     ${CMAKE_INSTALL_PREFIX}/lib/libcrypto.a
     # lzma
     ${CMAKE_INSTALL_PREFIX}/lib/liblzma.a
+
+     ${CMAKE_INSTALL_PREFIX}/lib/libpython${PY_VERSION}.a
 )
 
 

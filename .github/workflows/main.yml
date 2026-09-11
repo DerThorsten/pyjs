@@ -68,12 +68,24 @@ jobs:
 
           # build pyjs
           emcmake cmake \
-            -DCMAKE_BUILD_TYPE=Release \
-            -DCMAKE_FIND_ROOT_PATH_MODE_PACKAGE=ON \
-            -DBUILD_RUNTIME_BROWSER=ON \
-            -DBUILD_RUNTIME_NODE=OFF \
-            -DCMAKE_INSTALL_PREFIX=$PREFIX \
-            ..
+          -DCMAKE_FIND_ROOT_PATH_MODE_PACKAGE=ON \
+          -DBUILD_RUNTIME_BROWSER=ON \
+          -DBUILD_RUNTIME_NODE=OFF \
+          -DCMAKE_INSTALL_PREFIX=$PREFIX \
+          -DLINK_LIBLZMA=ON \
+          -DPY_VERSION=$PY_VER \
+          -DPYTHON_SITE_PACKAGES=$PREFIX/lib/python${PY_VER}/site-packages \
+          -DPython_INCLUDE_DIRS=$PREFIX/include/python${PY_VER} \
+          -DPython_LIBRARY=$PREFIX/lib/libpython${PY_VER}.a \
+          -DPython_LIBRARIES=$PREFIX/lib/libpython${PY_VER}.a \
+          -DPython_Interpreter_FOUND=TRUE \
+          -DPython_EXECUTABLE=$BUILD_PREFIX/bin/python${PY_VER} \
+          -DPYTHON_MODULE_EXTENSION=.so \
+          -DPYTHON_MODULE_DEBUG_POSTFIX="" \
+          -DPYTHON_MODULE_EXT_SUFFIX=.so \
+          -DPython_FOUND=TRUE \
+          -DWASM64=FALSE \
+          ..
 
           make -j2
 

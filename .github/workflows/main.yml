@@ -65,7 +65,7 @@ jobs:
           export PREFIX=$MAMBA_ROOT_PREFIX/envs/pyjs-build-wasm
           export CMAKE_PREFIX_PATH=$PREFIX
           export CMAKE_SYSTEM_PREFIX_PATH=$PREFIX
-
+          export PY_VER=3.14
           # build pyjs
           emcmake cmake \
           -DCMAKE_FIND_ROOT_PATH_MODE_PACKAGE=ON \
@@ -79,7 +79,7 @@ jobs:
           -DPython_LIBRARY=$PREFIX/lib/libpython${PY_VER}.a \
           -DPython_LIBRARIES=$PREFIX/lib/libpython${PY_VER}.a \
           -DPython_Interpreter_FOUND=TRUE \
-          -DPython_EXECUTABLE=$BUILD_PREFIX/bin/python${PY_VER} \
+          -DPython_EXECUTABLE=$MAMBA_ROOT_PREFIX/envs/pyjs-wasm/bin/python${PY_VER} \
           -DPYTHON_MODULE_EXTENSION=.so \
           -DPYTHON_MODULE_DEBUG_POSTFIX="" \
           -DPYTHON_MODULE_EXT_SUFFIX=.so \

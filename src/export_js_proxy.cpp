@@ -58,6 +58,11 @@ namespace pyjs
         }
     }
 
+    em::val val_jspi_await(em::val v)
+    {
+        return v.await();
+    }
+
 
     inline py::object getattr(em::val* self, em::val* key)
     {
@@ -212,8 +217,7 @@ namespace pyjs
 
         m_internal.def("val_bind",
                        [](em::val* v, em::val arg1) { return v->call<em::val>("bind", arg1); });
-
-
+        
         // m_internal.def("val_new",[](em::val  v){
         //     return  v.new_();
         // });

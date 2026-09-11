@@ -142,7 +142,7 @@ jobs:
             -c https://repo.prefix.dev/emscripten-forge-bot/emscripten-forge-6x \
             -c https://repo.prefix.dev/conda-forge \
             --yes \
-            "python=3.14" pytest exceptiongroup
+            "python=3.14" "pytest>=9"
 
       - name: Test in browser-main-no-numpy
         run: |

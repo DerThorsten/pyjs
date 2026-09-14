@@ -200,7 +200,6 @@ target_compile_options(pyjs_runtime_browser
 )
 
 target_link_options(pyjs_runtime_browser
-    PUBLIC "SHELL: -sJSPI"
     PUBLIC -Wno-unused-command-line-argument
     PUBLIC "SHELL: -s MODULARIZE=1"
     PUBLIC "SHELL: -s EXPORT_NAME=\"createModule\""

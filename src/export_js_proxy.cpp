@@ -58,11 +58,6 @@ namespace pyjs
         }
     }
 
-    em::val val_jspi_await(em::val v)
-    {
-        return v.await();
-    }
-
 
     inline py::object getattr(em::val* self, em::val* key)
     {
